@@ -1,0 +1,43 @@
+require 'rubygems'
+require 'mechanize'
+
+
+def create_file
+  FileUtils.remove_dir('new', true)
+  Dir.mkdir 'new'
+  File.new('new/form.htm', 'w')
+end
+
+
+def create_validation
+  File.new('new/form_validation.js', 'w')
+end
+
+
+
+def create_folders
+  Dir.mkdir 'new/images'
+end
+
+
+def download_images
+  agent = Mechanize.new
+  img_required = 'http://topcollegedegrees.net/schools/template/images/req.gif'
+  img_banner = 'http://topcollegedegrees.net/schools/template/images/request.jpg'
+  img_student = 'http://topcollegedegrees.net/schools/template/images/student.jpg'
+  img_logo = 'http://topcollegedegrees.net/schools/template/images/school-logo.png'
+  
+  agent.get(img_required).save 'new/images/req.gif' 
+  agent.get(img_banner).save 'new/images/request.jpg' 
+  agent.get(img_student).save 'new/images/student.jpg' 
+  agent.get(img_logo).save 'new/images/school-logo.png' 
+  
+end
+
+
+create_file
+create_validation
+create_folders
+download_images
+system('ruby page_creator-json.rb')
+system('ruby validation_creator-json.rb')

@@ -1,0 +1,68 @@
+body {background-color: #F6F5EE}
+
+
+
+table {width: 100%;
+	padding-left: 4px;
+	padding-right: 4px;
+	padding-top: 1px;
+	padding-bottom: 1px;  
+	table-layout: fixed;}
+td {padding: 10px 0;
+	width: 200px;
+	vertical-align: top;
+ 	font-family: Verdana, sans-serif;
+ 	font-weight: bold;
+ 	font-size:12pt;} 
+
+
+#container {width:1000px;
+	margin-top: 20px;
+	margin-left: auto ;
+		margin-right: auto ;
+	text-align: center;}
+#main {background-color:#FFF;
+	height:auto; 
+	overflow: auto}
+#left {width:50%;
+	float: left;}
+#right {width:50%;
+	display: inline-block;;
+	background-color:#E9DFC0;
+	height: auto;
+	right:0;
+	top: 0;
+	float:right;
+	text-align: left}
+
+
+.requestformheader {font-weight: bold;
+	font-size: 10pt;
+	font-family: verdana, sans-serif;}
+.requestformheader p {padding-top: 10px;}
+
+
+h2 {font-family: sans-serif;
+	margin-bottom:0;}
+
+p {margin-top: 0}
+
+ul {text-align: left;}
+
+.copy-area {padding: 0 15px;}
+.fine-print {font-size: 9pt;}
+
+.requestformtd {padding: 4px;}
+
+select {max-width:90%;}
+input {max-width:90%;}
+
+
+.disclosure {font-size:10pt;
+	font-weight: bold;
+	font-family: Verdana, Sans-serif;}
+
+
+
+input[type=submit] {
+}
