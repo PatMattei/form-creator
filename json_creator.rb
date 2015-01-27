@@ -1,13 +1,31 @@
-require 'xlsx2json'
-require 'json'
+require 'rubyXL'
 
-json_path = 'fields.json'
-excel_path = 'posting-docs.xlsx'
-sheet_number = 0 # sheet number start from 0
-header_row_number = 1 # row number of the header row which contains column names. 
-                      # Rows before this number get ignored. 
-                      # Row numbers start from 1 based on Excel conventions.
+workbook = RubyXL::Parser.parse("posting-docs.xlsx")
 
-Xlsx2json::Transformer.execute excel_path, sheet_number, json_path, header_row_number: header_row_number
+def create_file
+  File.delete('fields.json')
+  File.new('fields.json', 'w')
+end
 
-JSON.parse(File.open(json_path).read) # => [{"sku"=>"P07", "bu"=>"Paper", "sales"=>"200", "year"=>"2008"}, {"sku"=>"P17", "bu"=>"Paper", "sales"=>"200", "year"=>"2014"}, {"sku"=>"P19", "bu"=>"Paper", "sales"=>"200", "year"=>"2008"}]
+def create_FormFields(workbook)
+  form_fields = []
+
+
+  fields = workbook['Fields']
+  fields_sheet = fields.extract_data
+
+  field_titles = fields_sheet[0]
+  field_values = fields_sheet[1..-1]
+
+
+  field_values.map do |value|
+    form_fields << Hash[field_titles.zip(value)]
+  end
+  puts "#{form_fields}"
+end
+
+
+
+
+create_file
+create_FormFields(workbook)
