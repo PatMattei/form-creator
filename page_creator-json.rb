@@ -76,9 +76,9 @@ end
 
 #create HTML page
 data = open_file
-school_name = data['SchoolName']
-copy = data['Copy']['CopyText']
-disclaimer = data['Copy']['DisclaimerText']
+school_name = data[0]['SchoolName']
+copy = data[0]['Copy']['CopyText']
+disclaimer = data[0]['Copy']['DisclaimerText']
 
 create_page(school_name)
 create_left(school_name, copy, disclaimer)

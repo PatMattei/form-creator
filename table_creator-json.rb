@@ -12,7 +12,7 @@ def create_fields(data)
   field_on_line = 0
   line_number = 0
 
-  form = data['FormFields']
+  form = data[0]['FormFields']
 
   form.each do |content|
     col_span = content['ColSpan']
@@ -162,7 +162,7 @@ end
 #Create Form Fields
 data = open_file
 
-additional_text = data['Copy']['AdditionalText']
+additional_text = data[0]['Copy']['AdditionalText']
 
 create_table
 create_fields(data)

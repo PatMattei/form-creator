@@ -9,7 +9,7 @@ end
 
 
 def create_validate_form(data)
-  form = data['FormFields']
+  form = data[0]['FormFields']
 
   File.open('new/form_validation.js', 'a+') {|f| f.write("function validate_form()\n")}
   File.open('new/form_validation.js', 'a+') {|f| f.write("{\n")}
@@ -20,9 +20,11 @@ def create_validate_form(data)
     input_id = content['InputID']
     display_name = content['DisplayName']
 
-    if required == true && index != 0 && input_type != "Hidden"
-      File.open('new/form_validation.js', 'a+') {|f| f.write("\n\telse")}
-    
+    if required == true && input_type != "Hidden" 
+      if index != 0
+        File.open('new/form_validation.js', 'a+') {|f| f.write("\n\telse")}
+      end
+      
       if input_type == "Checkbox"
         File.open('new/form_validation.js', 'a+') {|f| f.write("\tif(document.getElementById('#{input_id}').checked == false)")}
       else

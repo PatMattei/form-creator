@@ -1,0 +1,96 @@
+[
+  {
+    "SchoolName": "Test University",
+    "Copy": {
+      "CopyText": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
+      "DisclaimerText": "This school is great.",
+      "AdditionalText": "By clicking Submit, I acknowledge that I may be contacted by email, text message and/or phone via automated means at the number provided above, including my wireless number, if provided, by a representative of NCU. I also understand that consent is not a condition of enrollment."
+    },
+    "FormFields": [
+     {
+        "DisplayName": "State",
+        "Required": true,
+        "ColSpan": 2,
+        "InputType": "DropDown",
+        "DropDownOptions": {
+          "NYValue": "New York", 
+          "ALValue": "Alabama"
+        },
+        "InputName": "State",
+        "InputID": "StateID",
+        "MaxLength": "",
+        "Value": ""
+      },
+      {
+        "DisplayName": "City",
+        "Required": true,
+        "ColSpan": 1,
+        "InputType": "Text",
+        "InputName": "City",
+        "InputID": "CityID",
+        "MaxLength": "",
+        "Value": ""
+      },
+      {
+        "DisplayName": "Name",
+        "Required": true,
+        "ColSpan": 1,
+        "InputType": "Text",
+        "InputName": "Name",
+        "InputID": "NameID",
+        "MaxLength": "",
+        "Value": ""
+      },
+      {
+        "DisplayName": "Hidden1",
+        "Required": true,
+        "ColSpan": 1,
+        "InputType": "Hidden",
+        "InputName": "HiddenName",
+        "InputID": "HiddenID",
+        "MaxLength": "",
+        "Value": ""
+      },
+      {
+        "DisplayName": "Hidden2",
+        "Required": true,
+        "ColSpan": 1,
+        "InputType": "Hidden",
+        "InputName": "HiddenName2",
+        "InputID": "HiddenID2",
+        "MaxLength": "",
+        "Value": ""
+      },
+      {
+        "DisplayName": "Program Area",
+        "Required": true,
+        "ColSpan": 1,
+        "InputType": "Text",
+        "InputName": "Program",
+        "InputID": "ProgramID",
+        "MaxLength": "",
+        "Value": ""
+      },
+      {
+        "DisplayName": "Comments",
+        "Required": false,
+        "ColSpan": 2,
+        "InputType": "Text",
+        "InputName": "Comments",
+        "InputID": "CommentsID",
+        "MaxLength": "500",
+        "Value": ""
+      },
+      {
+        "DisplayName": "By checking this box, I consent to receive phone calls and/or text messages from Post University at the phone number(s) provided, which may include a wireless number, using automated technology, to discuss their educational services. Checking this box is required for a school to contact me, without obligation to attend their university. I understand that my information will be handled in accordance with this site's privacy policy.",
+        "Required": true,
+        "ColSpan": 2,
+        "InputType": "Checkbox",
+        "InputName": "contact_permission",
+        "InputID": "leadid_tcpa_disclosure",
+        "MaxLength": "",
+        "Value": "1"
+      }
+    ]
+  }
+]
