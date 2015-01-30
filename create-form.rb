@@ -9,7 +9,7 @@ def create_file
 end
 
 
-def create_validation
+def create_validation_file
   File.new('new/form_validation.js', 'w')
 end
 
@@ -36,8 +36,9 @@ end
 
 
 create_file
-create_validation
+create_validation_file
 create_folders
 download_images
+system('ruby json_creator.rb')
 system('ruby page_creator-json.rb')
 system('ruby validation_creator-json.rb')

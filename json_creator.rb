@@ -32,7 +32,6 @@ def create_FormFields
     end
     form_fields << new_field
   end
-  puts form_fields
   form_fields
 end
 
@@ -52,6 +51,9 @@ def create_DropDownOptions(input_name)
 end
 
 def create_SchoolName
+  worksheet = open_workbook("SchoolName")
+  name_sheet = worksheet.get_table()
+  name_sheet["SchoolName"][0]
 end
 
 
@@ -68,8 +70,8 @@ def create_Copy
 end
 
 
-def write_to_json(form_fields, copy)  
-  array = [{"Copy"=>copy, "FormFields"=>form_fields}]
+def write_to_json(form_fields, copy, school_name)  
+  array = [{"SchoolName"=>school_name, "Copy"=>copy, "FormFields"=>form_fields}]
   
   File.open('fields.json', 'a+') {|f| f.write(JSON.pretty_generate(array))}
 end
@@ -80,4 +82,4 @@ create_file
 school_name = create_SchoolName
 form_fields = create_FormFields
 copy = create_Copy
-write_to_json(form_fields, copy)
+write_to_json(form_fields, copy, school_name)

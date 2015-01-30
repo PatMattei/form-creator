@@ -3,17 +3,124 @@
 <head>
 	<link rel='stylesheet' type='text/css' href='../forms.css'>
 	<script type='text/javascript' src='form_validation.js'></script>
-	<title></title>
+	<title>Test University</title>
 </head>
-
-		<div id='right'>
-			<div class='requestformheader'>
-				<p align='center'>
-					<img src='images/request.jpg' width='481' height='114'>
-					<br>
-					<br>
-					Complete this form to learn more about 
-				</p>
+<body>
+	<div id='container'>
+		<div id='main'>
+			<div id='left'>
+				<div class='logo-area'>
+					<img src='images/school-logo.png' alt='Test University' border='0'>
+				</div>
+				<hr color='#CCCCCC' size='0'>
+				<div class='photo-area'>
+					<p align='center'>
+						<img border='0' src='images/student.jpg' width='425' height='282'>
+					</p>
+				</div>
+				<hr color='#A2C0DF' size='1'>
+				<h1>Test University</h1>
+				<section>
+					This is the copytext
+				</section>
+				<div class='fine-print'>
+					<section>
+						<p>This is the disclaimer Text</p>
+					</section>
+				</div>
+			</div>
+			<div id='right'>
+				<div class='requestformheader'>
+					<p align='center'>
+						<img src='images/request.jpg' width='481' height='114'>
+						<br>
+						<br>
+						Complete this form to learn more about Test University
+					</p>
+				</div>
+				<form method='POST'>
+					<table>
+						<tr>
+							<td colspan = 2>
+								State
+								<br>
+								<input type='Dropdown' name='StateInput' id='StateID' maxlength='' value=''>
+							</td>
+						</tr>
+						<tr>
+							<td colspan = 1>
+								City
+								<br>
+								<input type='Text' name='CityInput' id='CityID' maxlength='' value=''>
+							</td>
+							<td colspan = 1>
+								Name
+								<br>
+								<input type='Text' name='NameInput' id='NameID' maxlength='' value=''>
+							</td>
+						</tr>
+						<tr>
+						</tr>
+						<tr>
+							<td style='display:none'>
+								<br>
+								<input type='Hidden' name='HiddenInput' id='HiddenID' maxlength='' value=''>
+							</td>
+						</tr>
+						<tr>
+							<td style='display:none'>
+								<br>
+								<input type='Hidden' name='HiddenInput' id='HiddenID2' maxlength='' value=''>
+							</td>
+						</tr>
+						<tr>
+							<td colspan = 1>
+								Program Area
+								<br>
+								<input type='Text' name='ProgramInput' id='ProgramID' maxlength='' value=''>
+							</td>
+						</tr>
+						<tr>
+							<td colspan = 2>
+								Comments
+								<br>
+								<input type='Text' name='CommentsInput' id='CommentsID' maxlength='500' value=''>
+							</td>
+						</tr>
+						<tr>
+							<td colspan = 1>
+								Zip Code
+								<br>
+								<input type='Text' name='ZipInput' id='ZipID' maxlength='5' value=''>
+							</td>
+						</tr>
+						<tr>
+							<td colspan = 2>
+								<label for='leadid_tcpa_disclosure'>
+									<span class='disclosure'>
+										By checking this box, I consent to receive phone calls and/or text messages from Post University at the phone number(s) provided, which may include a wireless number, using automated technology, to discuss their educational services. Checking this box is required for a school to contact me, without obligation to attend their university. I understand that my information will be handled in accordance with this site's privacy policy.
+									</span>
+								</label>
+								<br>
+								<input type='Checkbox' name='contact_permission' id='leadid_tcpa_disclosure' maxlength='' value='1'>
+							</td>
+						</tr>
+						<tr>
+							<td width='525' colspan='2'>
+								<input type='submit' value='Submit' name='B1' onclick='return validate_form()'>
+							</td>
+						</tr>
+						<tr>
+							<td colspan =2>
+								<div class='fine-print'>
+									<section>
+										<p></p>
+									</section>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</form>
 			</div>
 		</div>
 	</div>

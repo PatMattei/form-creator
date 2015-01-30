@@ -55,19 +55,20 @@ end
 
 
 def create_right(school_name)
-  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t<div id='right'>")}
-  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t<div class='requestformheader'>")}
-  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t<p align='center'>")}
-  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t<img src='images/request.jpg' width='481' height='114'>")}
-  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t<br>")}
-  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t<br>")}
-  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\tComplete this form to learn more about #{school_name}")}
-  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t</p>")}
-  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t</div>")}
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t<div id='right'>")}
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t<div class='requestformheader'>")}
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t<p align='center'>")}
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t<img src='images/request.jpg' width='481' height='114'>")}
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t<br>")}
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t<br>")}
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\tComplete this form to learn more about #{school_name}")}
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t</p>")}
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t</div>")}
   system('ruby table_creator-json.rb')
 end
 
 def close_page
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t</div>")}
   File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t</div>")}
   File.open('new/form.htm', 'a+') {|f| f.write("\n\t</div>")}
   File.open('new/form.htm', 'a+') {|f| f.write("\n</body>")}

@@ -1,5 +1,6 @@
 [
   {
+    "SchoolName": "Test University",
     "Copy": {
       "CopyText": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>",
       "DisclaimerText": "This school is great.",
