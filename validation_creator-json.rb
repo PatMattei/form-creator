@@ -14,7 +14,7 @@ def create_validate_form(data)
   File.open('new/form_validation.js', 'a+') {|f| f.write("function validate_form()\n")}
   File.open('new/form_validation.js', 'a+') {|f| f.write("{\n")}
 
-  form.each_with_index do |content, index|
+  form.to_a.each_with_index do |content, index|
     required = content['Required']
     input_type = content['InputType']
     input_id = content['InputID']

@@ -14,7 +14,7 @@ def create_fields(data)
 
   form = data[0]['FormFields']
 
-  form.each do |content|
+  form.to_a.each do |content|
     col_span = content['ColSpan']
     display_name = content['DisplayName']
     input_type = content['InputType'] 
