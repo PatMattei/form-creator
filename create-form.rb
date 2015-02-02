@@ -40,5 +40,5 @@ create_validation_file
 create_folders
 download_images
 system('ruby json_creator.rb')
-system('ruby page_creator-json.rb')
-system('ruby validation_creator-json.rb')
+system('ruby page_creator.rb')
+system('ruby validation_creator.rb')

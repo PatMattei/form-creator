@@ -26,7 +26,11 @@ def create_FormFields
   field_values.map do |value|
     new_field = Hash[field_titles.zip(value)]
 
-    if new_field['InputType'] == "Dropdown"
+    if new_field['Required'] == 1
+      new_field['Required'] = true
+    end
+
+    if new_field['InputType'] == "DropDown"
       input_name = new_field['InputName']
       new_field["DropDownOptions"] = create_DropDownOptions(input_name)
     end
@@ -63,9 +67,16 @@ def create_Copy
   worksheet = open_workbook("Copy")
   copy_sheet = worksheet.get_table([]) 
 
-  copy["CopyText"] = copy_sheet["CopyText"][0]
-  copy["DisclaimerText"] = copy_sheet["DisclaimerText"][0]
-  copy["AdditonalText"] = copy_sheet["AdditionalText"][0]
+  if copy_sheet["CopyText"][0] != nil
+    copy["CopyText"] = copy_sheet["CopyText"][0].gsub("\n", "</p>\n\t\t\t\t\t\t<p>")
+  end
+  if copy_sheet["DisclaimerText"][0] != nil
+    copy["DisclaimerText"] = copy_sheet["DisclaimerText"][0].gsub("\n", "</p>\n\t\t\t\t\t<p>")
+  end
+  if copy_sheet["AdditionalText"][0] != nil
+    copy["AdditionalText"] = copy_sheet["AdditionalText"][0].gsub("\n", "</p>\n\t\t\t\t\t<p>")
+  end
+  
   copy
 end
 
