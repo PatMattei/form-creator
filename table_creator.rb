@@ -112,21 +112,21 @@ end
 
 def create_dropdown(options, input_name, input_id)
   dropdown_options = options
-  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t\t<select name='#{input_name}' id='#{input_id}'>")}
-  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t\t\t<option value=''>Select One</option>")}
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t\t\t<select name='#{input_name}' id='#{input_id}'>")}
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t\t\t\t<option value=''>Select One</option>")}
 
   dropdown_options.each do |option| 
-    File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t\t\t<option value='#{option[0]}'>#{option[1]}</option>")}
+    File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t\t\t\t<option value='#{option[0]}'>#{option[1]}</option>")}
   end 
   
-  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t\t</select>")}
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t\t\t</select>")}
   File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t\t</td>")}
 end
 
 
 def create_additional_text(additional_text)
   File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t<tr>")}
-  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t\t<td colspan =2>")}
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t\t<td colspan = 2>")}
   File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t\t\t<div class='fine-print'>")}
   File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t\t\t\t<section>")}
   File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t\t\t\t\t\t\t\t<p>#{additional_text}</p>")}

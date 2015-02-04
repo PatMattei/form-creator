@@ -1,5 +1,7 @@
 require 'rubygems'
 require 'mechanize'
+require 'open-uri'
+
 
 
 def create_file
@@ -17,8 +19,14 @@ end
 
 def create_folders
   Dir.mkdir 'new/images'
+  download_css
 end
 
+def download_css
+  open('forms.css', 'wb') do |file|
+    file << open('http://www.topcollegedegrees.net/schools/forms.css').read
+  end
+end
 
 def download_images
   agent = Mechanize.new
