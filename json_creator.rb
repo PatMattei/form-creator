@@ -2,7 +2,9 @@ require 'rubyXL'
 require 'json'
 
 def create_file
-  File.delete('fields.json')
+  if File.exist?('fields.json',)
+    File.delete('fields.json',)
+  end
   File.new('fields.json', 'w')
 end
 
@@ -43,17 +45,29 @@ end
 
 def create_DropDownOptions(input_name)
   dropdown = {}
+
+  if open_workbook("#{input_name}Options") == nil
+    workbook = RubyXL::Parser.parse("posting-docs.xlsx")
+    workbook.add_worksheet("#{input_name}Options")
+    
+    worksheet =  workbook["#{input_name}Options"]
+    worksheet.add_cell(0, 0, 'InputID')  
+    worksheet.add_cell(0, 1, 'DisplayName')  
+
+    workbook.write("posting-docs.xlsx")
+  end
+
   dropdown_sheet = open_workbook("#{input_name}Options")
-
   dropdown_data = dropdown_sheet.extract_data
-
   dropdown_values = dropdown_data[1..-1]
 
   dropdown_values.map do |value|
     dropdown[value[0]] = value[1] 
   end
+  
   dropdown
 end
+
 
 def create_SchoolName
   worksheet = open_workbook("SchoolName")
