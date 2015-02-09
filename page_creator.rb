@@ -69,10 +69,11 @@ def create_right(school_name)
   system('ruby table_creator.rb')
 end
 
-def close_page
+def close_page(leadid)
   File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t\t</div>")}
   File.open('new/form.htm', 'a+') {|f| f.write("\n\t\t</div>")}
   File.open('new/form.htm', 'a+') {|f| f.write("\n\t</div>")}
+  File.open('new/form.htm', 'a+') {|f| f.write("\n\t#{leadid}")}
   File.open('new/form.htm', 'a+') {|f| f.write("\n</body>")}
   File.open('new/form.htm', 'a+') {|f| f.write("\n</html>")}
 end
@@ -83,8 +84,10 @@ data = open_file
 school_name = data[0]['SchoolName']
 copy = data[0]['Copy']['CopyText']
 disclaimer = data[0]['Copy']['DisclaimerText']
+leadid = data[0]['LeadID']
+puts leadid
 
 create_page(school_name)
 create_left(school_name, copy, disclaimer)
 create_right(school_name)
-close_page
+close_page(leadid)

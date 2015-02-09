@@ -1,5 +1,6 @@
 require 'rubyXL'
 require 'json'
+# encoding: UTF-8
 
 def create_file
   if File.exist?('fields.json',)
@@ -91,14 +92,18 @@ def create_Copy
   if copy_sheet["AdditionalText"][0] != nil
     copy["AdditionalText"] = copy_sheet["AdditionalText"][0].gsub("\n", "</p>\n\t\t\t\t\t<p>")
   end
-  
   copy
 end
 
+def create_LeadID
+  worksheet = open_workbook("LeadID")
+  leadid_sheet = worksheet.get_table()
+  leadid_sheet["LeadID Code"][0]
+end
 
-def write_to_json(form_fields, copy, school_name)  
-  array = [{"SchoolName"=>school_name, "Copy"=>copy, "FormFields"=>form_fields}]
-  
+
+def write_to_json(form_fields, copy, school_name, leadid)  
+  array = [{"SchoolName"=>school_name, "Copy"=>copy, "FormFields"=>form_fields, "LeadID"=>leadid}]
   File.open('fields.json', 'a+') {|f| f.write(JSON.pretty_generate(array))}
 end
 
@@ -108,4 +113,5 @@ create_file
 school_name = create_SchoolName
 form_fields = create_FormFields
 copy = create_Copy
-write_to_json(form_fields, copy, school_name)
+leadid = create_LeadID
+write_to_json(form_fields, copy, school_name, leadid)
