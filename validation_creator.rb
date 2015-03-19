@@ -15,23 +15,24 @@ def create_validate_form(data)
   index = 0
 
   form.to_a.each_with_index do |content|
-    required = content['Required']
-    input_type = content['InputType']
+    required = content['Required'].to_s.downcase
+    input_type = content['InputType'].to_s.downcase
     input_id = content['InputID']
     display_name = content['DisplayName']
 
-    if required == "yes" && input_type != "Hidden" 
+    if required == "yes" && input_type != "hidden" 
       if index != 0
         File.open('new/form_validation.js', 'a+') {|f| f.write("\n\telse")}
       end
       
-      if input_type == "Checkbox"
+      if input_type == "checkbox"
         File.open('new/form_validation.js', 'a+') {|f| f.write("\tif(document.getElementById('#{input_id}').checked == false)")}
       else
         File.open('new/form_validation.js', 'a+') {|f| f.write("\tif (document.getElementById('#{input_id}').value=='')")}
       end      
 
       display_name = display_name.gsub("\n", "")
+      display_name = display_name.gsub("\"", "\'")
 
       File.open('new/form_validation.js', 'a+') {|f| f.write("\n\t{")}
       File.open('new/form_validation.js', 'a+') {|f| f.write("\n\t\talert(\"Required Field: #{display_name}\");")}

@@ -2,20 +2,15 @@ require 'rubygems'
 require 'mechanize'
 require 'open-uri'
 
-
-
 def create_file
   FileUtils.remove_dir('new', true)
   Dir.mkdir 'new'
   File.new('new/form.htm', 'w')
 end
 
-
 def create_validation_file
   File.new('new/form_validation.js', 'w')
 end
-
-
 
 def create_folders
   Dir.mkdir 'new/images'
@@ -39,9 +34,7 @@ def download_images
   agent.get(img_banner).save 'new/images/request.jpg' 
   agent.get(img_student).save 'new/images/student.jpg' 
   agent.get(img_logo).save 'new/images/school-logo.png' 
-  
 end
-
 
 create_file
 create_validation_file
